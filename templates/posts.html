@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+<body>
+<div align="center">
+		<div align="center" class="border">
+			<div class="header">
+				<h3 class="word">Posts</h3>
+			</div>
+            <div class="container">
+<div class="row justify-content-center">
+         {% for post in posts %}
+                <div class="row">
+                    <h5>{{post['id']}} {{post['title']}} </h5><br>
+                </div>
+                <div class="row justify-content-center">
+
+                <p style="text-align:center">{{post['query']}}</p>
+                <p>{{post['description']}}</p>
+                <label for="reply">Response</label>
+    <textarea class="form-control" id="reply" rows="3"></textarea>
+
+                    <input id="{{post['id']}}" value="Reply" type="submit"/>
+                    <textarea style="margin-top:50px" class="form-control" disabled>Explain your work till now, if there are some changes with regards to your project proposal add them as well.Also, Attach some screenshots of your application!!</textarea>
+                   <div style="padding-left: 80%;">
+                       <p>Replied by:<a href="#">Roopam</a>
+                           </div>
+                       <textarea style="margin-top:50px" class="form-control" disabled>Provide the updates of your project. You should provide updates on changes, if you have made any from the proposed project. Also if you are stuck you can ask for suggestions.</textarea>
+                   <div style="padding-left: 80%;">
+                       <p>Replied by:<a href="#">Sharanya</a></p>
+                   </div>
+                        </div>
+                    {% endfor%}
+</div>
+            </div>
+        </div></div>
+</body>
+</html>
+{% endblock %}
